@@ -1,0 +1,138 @@
+{
+  "site": {
+    "name": "The Parking Guys",
+    "domain": "https://www.theparkingguys.com",
+    "language": "en-US",
+    "brand": {
+      "logo_text": "The Parking Guys",
+      "tagline": "Park Smarter. Earn More. Delight Guests.",
+      "colors": {
+        "primary": "#1C3D5A",
+        "secondary": "#0EA5E9",
+        "accent": "#10B981",
+        "neutral_dark": "#0B1220",
+        "neutral": "#6B7280",
+        "neutral_light": "#F3F4F6",
+        "warning": "#F59E0B",
+        "danger": "#EF4444"
+      },
+      "typography": {
+        "heading": "Inter",
+        "body": "Inter",
+        "mono": "JetBrains Mono"
+      },
+      "voice": {
+        "tone": "confident, hospitality-first, data-driven",
+        "style_notes": [
+          "Lead with guest/patient experience, support with numbers.",
+          "Use plain English for tech; tie every feature to outcomes (RevPAS, NPS, compliance).",
+          "Avoid superlatives unless supported by proof."
+        ]
+      }
+    },
+    "cities": {
+      "nashville": {
+        "name": "Nashville",
+        "logo": "valet-nashville-logo.png",
+        "description": "Premium valet services in Music City",
+        "services": ["Hotel Valet", "Event Parking", "Corporate Services", "Restaurant Valet"],
+        "contact": {
+          "phone": "(615) 555-0123",
+          "email": "nashville@theparkingguys.com"
+        }
+      },
+      "atlanta": {
+        "name": "Atlanta",
+        "logo": "valet-atl-logo.png", 
+        "description": "Professional parking solutions in the ATL",
+        "services": ["Airport Parking", "Downtown Valet", "Stadium Events", "Medical Center Parking"],
+        "contact": {
+          "phone": "(404) 555-0124",
+          "email": "atlanta@theparkingguys.com"
+        }
+      }
+    }
+  },
+  "navigation": {
+    "primary": [
+      { "label": "Solutions", "href": "/solutions" },
+      { "label": "Technology", "href": "/technology" },
+      { "label": "Case Studies", "href": "/case-studies" },
+      { "label": "RFP & Procurement", "href": "/rfp-procurement" },
+      { "label": "About", "href": "/about" },
+      { "label": "Blog", "href": "/blog" },
+      { "label": "Book a Call", "href": "https://link.parkingcompanyworldwide.com/widget/booking/8VdpD7ZROxwIdpWvZpwn", "emphasis": true },
+      { "label": "Contact", "href": "/contact" }
+    ]
+  },
+  "pages": [
+    {
+      "slug": "/",
+      "template": "home",
+      "content": {
+        "hero": {
+          "eyebrow": "Valet • Self‑Parking • Gateless",
+          "headline": "Park Smarter. Earn More. Delight Guests.",
+          "subheadline": "We run high‑performing parking programs for hotels, hospitals, cities, airports, and venues—combining hospitality DNA with data‑driven revenue management.",
+          "primary_cta": { "label": "Book a 120‑Day Pilot", "href": "/contact?intent=pilot" },
+          "secondary_cta": { "label": "Request RFP Package", "href": "/rfp-procurement#rfp-kit" },
+          "tertiary_cta": { "label": "Book a Call", "href": "https://link.parkingcompanyworldwide.com/widget/booking/8VdpD7ZROxwIdpWvZpwn" },
+          "trust_badges": [ "Insured & Bonded", "24/7 Remote Help Desk", "ADA & Safety First" ]
+        },
+        "vertical_cards": [
+          {
+            "icon": "hotel",
+            "title": "Hospitality",
+            "copy": "Valet & self‑parking that elevates arrival, increases revenue per available space (RevPAS), and fits your brand.",
+            "href": "/solutions/hospitality"
+          },
+          {
+            "icon": "healthcare",
+            "title": "Healthcare",
+            "copy": "Safety‑first patient and visitor flow, ADA excellence, and data transparency for hospital leadership.",
+            "href": "/solutions/healthcare"
+          },
+          {
+            "icon": "city",
+            "title": "Municipal & University",
+            "copy": "Policy‑aligned programs with citizen communications, compliance, and local participation (LBE/DBE).",
+            "href": "/solutions/municipal-university"
+          },
+          {
+            "icon": "airport",
+            "title": "Airports & Transportation",
+            "copy": "Integrated smart‑parking, shuttle coordination, and pre‑booking to decongest curbs and grow yield.",
+            "href": "/solutions/airports-transport"
+          },
+          {
+            "icon": "stadium",
+            "title": "Stadiums & Venues",
+            "copy": "Game‑day ingress/egress mastery, dynamic event pricing, and ADA shuttles for peak demand.",
+            "href": "/solutions/stadiums-venues"
+          }
+        ],
+        "pg_way": {
+          "headline": "The PG Way",
+          "pillars": [
+            { "title": "Hospitality First", "text": "Every interaction—curb to curb—is designed to lift satisfaction and reviews." },
+            { "title": "Safety First", "text": "Six‑pillar safety program with training calendars, drills, and leading indicators." },
+            { "title": "Revenue Science", "text": "RevPAS, dynamic pricing, and marketplace distribution—not just 'rate & wait'." },
+            { "title": "Transparent Ops", "text": "Live dashboards, ALPR audits, and weekly revenue/leakage reporting." }
+          ],
+          "cta": { "label": "See our Safety First program", "href": "/technology#safety-first" }
+        },
+        "technology_preview": {
+          "headline": "PG Tech — built for results",
+          "features": [
+            { "title": "Valet OS", "text": "Photo walk‑arounds, digital claims & tipping, text‑to‑retrieve, and real‑time staffing views." },
+            { "title": "Gateless Readiness", "text": "ALPR auditing, QR/mobile pay, and signage kits engineered for compliance." },
+            { "title": "Revenue Management", "text": "RevPAS targets with dynamic pricing and event calendars." },
+            { "title": "Distribution", "text": "Syndicate surplus inventory to 15+ marketplaces to capture demand." },
+            { "title": "Remote Help Desk", "text": "24/7 assistance to solve exceptions without blocking lanes." }
+          ],
+          "cta": { "label": "Explore the full stack", "href": "/technology" }
+        }
+      }
+    }
+  ]
+}
