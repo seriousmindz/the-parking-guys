@@ -1,0 +1,507 @@
+{
+  "rfp": {
+    "title": "RFP & Procurement Resources",
+    "description": "Comprehensive procurement resources, templates, and industry-specific RFP packages to streamline your parking services selection process.",
+    "overview": {
+      "title": "Streamlined Procurement Process",
+      "subtitle": "Everything you need to evaluate and select parking services",
+      "benefits": [
+        "Industry-specific RFP templates",
+        "Comprehensive vendor evaluation criteria",
+        "Implementation timeline templates",
+        "Budget planning worksheets",
+        "Compliance and insurance requirements",
+        "Performance metrics and KPIs"
+      ]
+    },
+    "industries": [
+      {
+        "id": "hospitality",
+        "name": "Hospitality & Hotels",
+        "icon": "🏨",
+        "description": "Premium valet services that enhance guest experience and drive revenue",
+        "rfp_template": {
+          "title": "Hotel Valet Services RFP Template",
+          "sections": [
+            "Guest Experience Requirements",
+            "Revenue Management Expectations",
+            "Brand Standards Compliance",
+            "Technology Integration (PMS, Mobile Apps)",
+            "Concierge Services Integration",
+            "Event and Group Handling",
+            "Insurance and Liability Coverage",
+            "Performance Metrics and Reporting"
+          ],
+          "key_requirements": [
+            "White-glove guest service standards",
+            "Revenue per available space (RevPAS) optimization",
+            "PMS system integration",
+            "Mobile app compatibility",
+            "Multilingual staff capabilities",
+            "VIP and loyalty program recognition",
+            "Event parking coordination",
+            "Real-time reporting dashboards"
+          ],
+          "evaluation_criteria": [
+            "Guest satisfaction scores (target: 95%+)",
+            "Revenue increase potential (25-40%)",
+            "Technology platform capabilities",
+            "Staff training and certification",
+            "Insurance coverage limits",
+            "Implementation timeline (1-2 weeks)",
+            "Cost structure and pricing model",
+            "References from similar properties"
+          ]
+        },
+        "budget_considerations": {
+          "typical_range": "$15,000 - $50,000/month",
+          "roi_expectation": "25-40% revenue increase",
+          "cost_factors": [
+            "Property size and volume",
+            "Service hours and coverage",
+            "Technology platform fees",
+            "Staff training and certification",
+            "Insurance and bonding costs"
+          ]
+        }
+      },
+      {
+        "id": "healthcare",
+        "name": "Healthcare & Medical Centers",
+        "icon": "🏥",
+        "description": "Patient-focused parking solutions with safety and accessibility priorities",
+        "rfp_template": {
+          "title": "Medical Center Parking Services RFP Template",
+          "sections": [
+            "Patient and Visitor Experience",
+            "ADA Compliance and Accessibility",
+            "Emergency and Code Response",
+            "Staff Parking Management",
+            "Wayfinding and Signage",
+            "Technology and Payment Systems",
+            "Safety and Security Protocols",
+            "Performance Metrics and Quality Assurance"
+          ],
+          "key_requirements": [
+            "ADA compliance and accessibility expertise",
+            "Emergency response protocols",
+            "Patient priority parking systems",
+            "Staff parking management",
+            "Multilingual communication",
+            "Medical equipment transport assistance",
+            "24/7 operational capability",
+            "HIPAA awareness and compliance"
+          ],
+          "evaluation_criteria": [
+            "Patient satisfaction improvement (target: 35%+)",
+            "ADA compliance certification",
+            "Emergency response training",
+            "Staff background checks and screening",
+            "Technology platform capabilities",
+            "Insurance coverage for medical facilities",
+            "Cost-effectiveness and budget alignment",
+            "Healthcare industry experience"
+          ]
+        },
+        "budget_considerations": {
+          "typical_range": "$20,000 - $75,000/month",
+          "roi_expectation": "35-50% patient satisfaction increase",
+          "cost_factors": [
+            "Facility size and patient volume",
+            "24/7 coverage requirements",
+            "ADA compliance features",
+            "Emergency response capabilities",
+            "Technology integration costs"
+          ]
+        }
+      },
+      {
+        "id": "municipal",
+        "name": "Municipal & Government",
+        "icon": "🏛️",
+        "description": "Public parking solutions with transparency, compliance, and citizen satisfaction focus",
+        "rfp_template": {
+          "title": "Municipal Parking Services RFP Template",
+          "sections": [
+            "Public Service Standards",
+            "Compliance and Regulatory Requirements",
+            "Citizen Communication and Transparency",
+            "Revenue Management and Reporting",
+            "Local Business Enterprise (LBE/DBE) Participation",
+            "Environmental and Sustainability Goals",
+            "Technology and Digital Services",
+            "Performance Metrics and Accountability"
+          ],
+          "key_requirements": [
+            "Public sector experience and compliance",
+            "Transparent reporting and accountability",
+            "Local hiring and community engagement",
+            "Environmental sustainability practices",
+            "Citizen complaint resolution systems",
+            "Multi-language communication capabilities",
+            "Open data and transparency initiatives",
+            "Budget management and cost control"
+          ],
+          "evaluation_criteria": [
+            "Public sector experience and references",
+            "Compliance with procurement regulations",
+            "Local business participation plan",
+            "Environmental impact reduction",
+            "Citizen satisfaction improvement",
+            "Cost-effectiveness and value",
+            "Technology platform capabilities",
+            "Implementation and transition plan"
+          ]
+        },
+        "budget_considerations": {
+          "typical_range": "$25,000 - $100,000/month",
+          "roi_expectation": "30-45% revenue increase",
+          "cost_factors": [
+            "Coverage area and facility count",
+            "Public service requirements",
+            "Compliance and reporting needs",
+            "Technology platform costs",
+            "Community engagement activities"
+          ]
+        }
+      },
+      {
+        "id": "airports",
+        "name": "Airports & Transportation",
+        "icon": "✈️",
+        "description": "High-volume transportation hub parking with security and efficiency focus",
+        "rfp_template": {
+          "title": "Airport Parking Services RFP Template",
+          "sections": [
+            "Security and Background Check Requirements",
+            "High-Volume Operations Management",
+            "Customer Experience and Service Standards",
+            "Technology Integration and Mobile Services",
+            "Revenue Optimization and Dynamic Pricing",
+            "Ground Transportation Coordination",
+            "Emergency and Incident Response",
+            "Performance Metrics and Reporting"
+          ],
+          "key_requirements": [
+            "TSA and airport security compliance",
+            "High-volume operations experience",
+            "Multi-modal transportation coordination",
+            "Dynamic pricing and revenue optimization",
+            "Mobile app and pre-booking capabilities",
+            "Shuttle and ground transport integration",
+            "24/7 operational capability",
+            "Emergency response protocols"
+          ],
+          "evaluation_criteria": [
+            "Airport and transportation experience",
+            "Security clearance and compliance",
+            "High-volume operational capability",
+            "Technology platform sophistication",
+            "Revenue optimization track record",
+            "Customer satisfaction scores",
+            "Cost structure and pricing model",
+            "Implementation timeline and plan"
+          ]
+        },
+        "budget_considerations": {
+          "typical_range": "$50,000 - $200,000/month",
+          "roi_expectation": "40-60% revenue increase",
+          "cost_factors": [
+            "Facility size and passenger volume",
+            "Security and compliance requirements",
+            "Technology platform complexity",
+            "24/7 operational coverage",
+            "Ground transportation integration"
+          ]
+        }
+      },
+      {
+        "id": "stadiums",
+        "name": "Stadiums & Entertainment",
+        "icon": "🏟️",
+        "description": "Event-driven parking solutions for high-capacity venues and entertainment facilities",
+        "rfp_template": {
+          "title": "Stadium & Entertainment Venue RFP Template",
+          "sections": [
+            "Event Management and Crowd Control",
+            "Dynamic Pricing and Revenue Optimization",
+            "Fan Experience and Customer Service",
+            "Traffic Flow and Ingress/Egress Management",
+            "Technology Integration and Mobile Services",
+            "VIP and Premium Services",
+            "Safety and Emergency Response",
+            "Performance Metrics and Event Analysis"
+          ],
+          "key_requirements": [
+            "Large-scale event management experience",
+            "Dynamic pricing and yield management",
+            "Crowd control and traffic flow expertise",
+            "VIP and premium service capabilities",
+            "Mobile ticketing and pre-sales integration",
+            "Emergency evacuation procedures",
+            "Multi-event scheduling coordination",
+            "Fan experience optimization"
+          ],
+          "evaluation_criteria": [
+            "Stadium and entertainment venue experience",
+            "Event management track record",
+            "Revenue optimization capabilities",
+            "Technology platform features",
+            "Customer satisfaction scores",
+            "Safety and emergency response plans",
+            "Cost structure and revenue sharing",
+            "Implementation and training plan"
+          ]
+        },
+        "budget_considerations": {
+          "typical_range": "$30,000 - $150,000/month",
+          "roi_expectation": "50-75% revenue increase",
+          "cost_factors": [
+            "Venue capacity and event frequency",
+            "Dynamic pricing complexity",
+            "VIP service requirements",
+            "Technology platform features",
+            "Emergency response capabilities"
+          ]
+        }
+      },
+      {
+        "id": "universities",
+        "name": "Universities & Education",
+        "icon": "🎓",
+        "description": "Campus parking solutions balancing student needs, staff requirements, and visitor services",
+        "rfp_template": {
+          "title": "University Campus Parking RFP Template",
+          "sections": [
+            "Student and Faculty Service Standards",
+            "Campus Safety and Security Integration",
+            "Permit Management and Enforcement",
+            "Visitor and Event Parking Coordination",
+            "Technology Integration and Mobile Apps",
+            "Sustainability and Environmental Goals",
+            "Budget Management and Cost Control",
+            "Performance Metrics and Campus Relations"
+          ],
+          "key_requirements": [
+            "Higher education experience",
+            "Student-focused service approach",
+            "Campus safety integration",
+            "Permit system management",
+            "Event and visitor coordination",
+            "Sustainability practices",
+            "Budget-conscious operations",
+            "Community relations expertise"
+          ],
+          "evaluation_criteria": [
+            "Higher education sector experience",
+            "Student satisfaction improvement",
+            "Campus safety integration",
+            "Technology platform capabilities",
+            "Sustainability initiatives",
+            "Cost-effectiveness and value",
+            "Implementation timeline",
+            "Campus community engagement"
+          ]
+        },
+        "budget_considerations": {
+          "typical_range": "$20,000 - $80,000/month",
+          "roi_expectation": "25-40% efficiency improvement",
+          "cost_factors": [
+            "Campus size and student population",
+            "Permit management complexity",
+            "Event parking requirements",
+            "Technology platform costs",
+            "Sustainability initiatives"
+          ]
+        }
+      },
+      {
+        "id": "retail",
+        "name": "Retail & Shopping Centers",
+        "icon": "🛍️",
+        "description": "Customer-focused parking solutions that drive retail traffic and enhance shopping experience",
+        "rfp_template": {
+          "title": "Retail & Shopping Center RFP Template",
+          "sections": [
+            "Customer Experience and Convenience",
+            "Retail Traffic Optimization",
+            "Technology Integration and Mobile Services",
+            "Revenue Management and Validation Systems",
+            "Holiday and Peak Season Management",
+            "Tenant Relations and Coordination",
+            "Safety and Security Protocols",
+            "Performance Metrics and Retail Analytics"
+          ],
+          "key_requirements": [
+            "Retail industry experience",
+            "Customer convenience focus",
+            "Traffic flow optimization",
+            "Validation system management",
+            "Peak season scalability",
+            "Tenant coordination capabilities",
+            "Mobile payment integration",
+            "Retail analytics and reporting"
+          ],
+          "evaluation_criteria": [
+            "Retail sector experience and references",
+            "Customer satisfaction improvement",
+            "Traffic and sales impact",
+            "Technology platform capabilities",
+            "Peak season management",
+            "Cost structure and validation handling",
+            "Implementation timeline",
+            "Tenant relations approach"
+          ]
+        },
+        "budget_considerations": {
+          "typical_range": "$15,000 - $60,000/month",
+          "roi_expectation": "20-35% customer dwell time increase",
+          "cost_factors": [
+            "Shopping center size and traffic",
+            "Validation system complexity",
+            "Peak season requirements",
+            "Technology platform features",
+            "Tenant coordination needs"
+          ]
+        }
+      },
+      {
+        "id": "corporate",
+        "name": "Corporate & Office Buildings",
+        "icon": "🏢",
+        "description": "Professional parking solutions for corporate environments and office complexes",
+        "rfp_template": {
+          "title": "Corporate Office Parking RFP Template",
+          "sections": [
+            "Employee and Visitor Service Standards",
+            "Corporate Image and Professional Standards",
+            "Technology Integration and Access Control",
+            "Cost Management and Budget Control",
+            "Sustainability and Corporate Responsibility",
+            "Tenant Relations and Multi-Building Coordination",
+            "Security and Access Management",
+            "Performance Metrics and Corporate Reporting"
+          ],
+          "key_requirements": [
+            "Corporate environment experience",
+            "Professional service standards",
+            "Employee satisfaction focus",
+            "Access control integration",
+            "Budget management expertise",
+            "Sustainability practices",
+            "Multi-tenant coordination",
+            "Corporate reporting capabilities"
+          ],
+          "evaluation_criteria": [
+            "Corporate sector experience",
+            "Professional service standards",
+            "Employee satisfaction scores",
+            "Technology integration capabilities",
+            "Cost-effectiveness and budget alignment",
+            "Sustainability initiatives",
+            "Implementation timeline",
+            "Corporate references and testimonials"
+          ]
+        },
+        "budget_considerations": {
+          "typical_range": "$10,000 - $40,000/month",
+          "roi_expectation": "20-30% operational efficiency increase",
+          "cost_factors": [
+            "Building size and employee count",
+            "Access control requirements",
+            "Technology integration needs",
+            "Sustainability features",
+            "Multi-tenant coordination"
+          ]
+        }
+      }
+    ],
+    "procurement_process": {
+      "title": "Streamlined Procurement Process",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Requirements Assessment",
+          "description": "Define your specific needs, budget, and timeline",
+          "duration": "1-2 weeks",
+          "deliverables": ["Needs assessment report", "Budget framework", "Timeline requirements"]
+        },
+        {
+          "step": 2,
+          "title": "RFP Development",
+          "description": "Customize industry-specific RFP template",
+          "duration": "1 week",
+          "deliverables": ["Customized RFP document", "Evaluation criteria", "Vendor requirements"]
+        },
+        {
+          "step": 3,
+          "title": "Vendor Evaluation",
+          "description": "Review proposals and conduct vendor presentations",
+          "duration": "2-3 weeks",
+          "deliverables": ["Vendor comparison matrix", "Reference checks", "Site visits"]
+        },
+        {
+          "step": 4,
+          "title": "Contract Negotiation",
+          "description": "Finalize terms, pricing, and service agreements",
+          "duration": "1-2 weeks",
+          "deliverables": ["Final contract", "SLA agreements", "Implementation plan"]
+        },
+        {
+          "step": 5,
+          "title": "Implementation",
+          "description": "Deploy services and begin operations",
+          "duration": "1-2 weeks",
+          "deliverables": ["Go-live checklist", "Staff training", "Performance monitoring"]
+        }
+      ]
+    },
+    "resources": {
+      "title": "Additional Resources",
+      "documents": [
+        {
+          "title": "Parking Services Evaluation Checklist",
+          "description": "Comprehensive checklist for evaluating parking service providers",
+          "type": "PDF",
+          "pages": 8
+        },
+        {
+          "title": "Budget Planning Worksheet",
+          "description": "Excel template for parking services budget planning",
+          "type": "Excel",
+          "features": ["Cost calculators", "ROI projections", "Comparison tools"]
+        },
+        {
+          "title": "Implementation Timeline Template",
+          "description": "Project timeline template for parking services implementation",
+          "type": "Project Plan",
+          "duration": "4-6 weeks typical"
+        },
+        {
+          "title": "Performance Metrics Dashboard",
+          "description": "KPI tracking template for parking services performance",
+          "type": "Dashboard",
+          "metrics": ["Customer satisfaction", "Revenue performance", "Operational efficiency"]
+        }
+      ]
+    },
+    "contact": {
+      "title": "Expert Procurement Support",
+      "description": "Our procurement specialists provide free consultation to help streamline your RFP process",
+      "services": [
+        "RFP template customization",
+        "Vendor evaluation assistance",
+        "Budget planning support",
+        "Implementation guidance",
+        "Performance metrics setup",
+        "Contract negotiation support"
+      ],
+      "cta": {
+        "title": "Get Expert RFP Assistance",
+        "subtitle": "Schedule a free consultation with our procurement specialists",
+        "button_text": "Schedule Consultation",
+        "booking_link": "https://link.parkingcompanyworldwide.com/widget/booking/8VdpD7ZROxwIdpWvZpwn"
+      }
+    }
+  }
+}

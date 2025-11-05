@@ -1,0 +1,24 @@
+Contact: mailto:info@theparkingguys.com
+Contact: tel:+1-877-908-8271
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://theparkingguys.com/.well-known/security.txt
+Policy: https://theparkingguys.com/security-policy
+Acknowledgments: https://theparkingguys.com/security-acknowledgments
+
+# Security Contact Information
+# The Parking Company Worldwide
+# 
+# If you discover a security vulnerability, please report it to:
+# Email: info@theparkingguys.com
+# Phone: (877) 908-8271
+# 
+# We take security seriously and will respond to all reports promptly.
+# Please include:
+# - Description of the vulnerability
+# - Steps to reproduce
+# - Potential impact
+# - Any proof of concept code
+# 
+# We appreciate responsible disclosure and will acknowledge all valid reports.
+

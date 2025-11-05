@@ -1,0 +1,269 @@
+{
+  "case_studies": [
+    {
+      "id": "luxury-hotel-nashville",
+      "title": "Luxury Hotel Increases Revenue 35% with Smart Valet",
+      "client": "The Hermitage Hotel",
+      "location": "Nashville, TN",
+      "industry": "Hospitality",
+      "challenge": "Limited parking spaces in downtown Nashville were causing guest frustration and lost revenue. The hotel's traditional valet system couldn't handle peak demand efficiently.",
+      "solution": "Implemented PG's Valet OS with dynamic pricing, pre-booking capabilities, and real-time space optimization. Added mobile text-to-retrieve and digital tipping features.",
+      "results": {
+        "revenue_increase": "35%",
+        "guest_satisfaction": "92%",
+        "operational_efficiency": "40%",
+        "wait_time_reduction": "60%"
+      },
+      "metrics": [
+        {
+          "label": "Revenue Per Available Space (RevPAS)",
+          "before": "$12.50",
+          "after": "$16.88",
+          "improvement": "+35%"
+        },
+        {
+          "label": "Average Guest Wait Time",
+          "before": "8 minutes",
+          "after": "3 minutes",
+          "improvement": "-62%"
+        },
+        {
+          "label": "Guest Satisfaction Score",
+          "before": "7.2/10",
+          "after": "9.2/10",
+          "improvement": "+28%"
+        }
+      ],
+      "testimonial": {
+        "quote": "The Parking Guys transformed our valet operation from a cost center into a profit driver. Our guests love the seamless experience, and we're generating significantly more revenue from the same footprint.",
+        "author": "Sarah Mitchell",
+        "title": "General Manager"
+      },
+      "image": "hermitage-hotel-case-study.jpg",
+      "duration": "6 months",
+      "roi": "280%"
+    },
+    {
+      "id": "medical-center-atlanta",
+      "title": "Medical Center Improves Patient Flow by 45%",
+      "client": "Piedmont Atlanta Hospital",
+      "location": "Atlanta, GA",
+      "industry": "Healthcare",
+      "challenge": "Patient and visitor parking was causing stress and delays. Emergency vehicle access was frequently blocked, and ADA compliance needed improvement.",
+      "solution": "Deployed comprehensive parking management with priority lanes for emergency vehicles, ADA-compliant shuttle service, and patient pre-registration parking.",
+      "results": {
+        "patient_flow_improvement": "45%",
+        "emergency_access_time": "3x faster",
+        "ada_compliance": "100%",
+        "patient_satisfaction": "89%"
+      },
+      "metrics": [
+        {
+          "label": "Average Parking Search Time",
+          "before": "12 minutes",
+          "after": "4 minutes",
+          "improvement": "-67%"
+        },
+        {
+          "label": "Emergency Vehicle Response",
+          "before": "6 minutes",
+          "after": "2 minutes",
+          "improvement": "-67%"
+        },
+        {
+          "label": "ADA Compliance Score",
+          "before": "78%",
+          "after": "100%",
+          "improvement": "+22%"
+        }
+      ],
+      "testimonial": {
+        "quote": "Patient care starts in the parking lot. The Parking Guys helped us create a stress-free arrival experience that sets the tone for healing.",
+        "author": "Dr. Michael Chen",
+        "title": "Chief Medical Officer"
+      },
+      "image": "piedmont-hospital-case-study.jpg",
+      "duration": "4 months",
+      "roi": "195%"
+    },
+    {
+      "id": "downtown-municipal",
+      "title": "City Reduces Traffic Congestion 30% Downtown",
+      "client": "City of Nashville",
+      "location": "Nashville, TN",
+      "industry": "Municipal",
+      "challenge": "Downtown parking shortage was causing traffic congestion and hurting local businesses. Citizens complained about confusing parking regulations and high violation rates.",
+      "solution": "Implemented smart parking with real-time availability, mobile payments, and dynamic pricing. Added clear digital signage and citizen communication portal.",
+      "results": {
+        "traffic_reduction": "30%",
+        "business_revenue": "22%",
+        "violation_reduction": "55%",
+        "citizen_satisfaction": "84%"
+      },
+      "metrics": [
+        {
+          "label": "Downtown Traffic Volume",
+          "before": "15,000 cars/day",
+          "after": "10,500 cars/day",
+          "improvement": "-30%"
+        },
+        {
+          "label": "Parking Violations",
+          "before": "450/month",
+          "after": "200/month",
+          "improvement": "-56%"
+        },
+        {
+          "label": "Local Business Revenue",
+          "before": "$2.1M/month",
+          "after": "$2.6M/month",
+          "improvement": "+24%"
+        }
+      ],
+      "testimonial": {
+        "quote": "This partnership transformed our downtown into a more accessible, business-friendly environment. Citizens love the convenience, and local businesses are thriving.",
+        "author": "Mayor John Cooper",
+        "title": "Mayor of Nashville"
+      },
+      "image": "nashville-downtown-case-study.jpg",
+      "duration": "8 months",
+      "roi": "340%"
+    },
+    {
+      "id": "stadium-events",
+      "title": "Stadium Handles 65,000 Fans with Zero Delays",
+      "client": "Nissan Stadium",
+      "location": "Nashville, TN",
+      "industry": "Sports & Entertainment",
+      "challenge": "Game day parking was chaotic with 2-hour traffic jams and frustrated fans missing kickoff. Traditional parking couldn't handle surge demand efficiently.",
+      "solution": "Deployed event-specific parking with pre-booking, dynamic pricing, shuttle coordination, and real-time traffic management. Added mobile-first fan experience.",
+      "results": {
+        "traffic_elimination": "95%",
+        "fan_satisfaction": "91%",
+        "revenue_increase": "42%",
+        "operational_efficiency": "60%"
+      },
+      "metrics": [
+        {
+          "label": "Average Arrival Time",
+          "before": "45 minutes",
+          "after": "12 minutes",
+          "improvement": "-73%"
+        },
+        {
+          "label": "Parking Revenue per Game",
+          "before": "$85,000",
+          "after": "$121,000",
+          "improvement": "+42%"
+        },
+        {
+          "label": "Fan Experience Rating",
+          "before": "6.1/10",
+          "after": "9.1/10",
+          "improvement": "+49%"
+        }
+      ],
+      "testimonial": {
+        "quote": "Game day parking went from our biggest headache to a competitive advantage. Fans arrive happy and ready to cheer, not frustrated from sitting in traffic.",
+        "author": "Burke Nihill",
+        "title": "President, Tennessee Titans"
+      },
+      "image": "nissan-stadium-case-study.jpg",
+      "duration": "3 months",
+      "roi": "425%"
+    },
+    {
+      "id": "airport-parking",
+      "title": "Airport Increases Parking Revenue 50% with Smart Tech",
+      "client": "Nashville International Airport",
+      "location": "Nashville, TN",
+      "industry": "Transportation",
+      "challenge": "Travelers struggled to find parking during peak times, leading to missed flights and customer complaints. Revenue per space was below industry benchmarks.",
+      "solution": "Implemented smart parking with real-time availability, pre-booking, shuttle optimization, and dynamic pricing based on demand and flight schedules.",
+      "results": {
+        "revenue_increase": "50%",
+        "customer_satisfaction": "88%",
+        "space_utilization": "95%",
+        "missed_flight_reduction": "80%"
+      },
+      "metrics": [
+        {
+          "label": "Parking Revenue per Month",
+          "before": "$1.2M",
+          "after": "$1.8M",
+          "improvement": "+50%"
+        },
+        {
+          "label": "Space Utilization Rate",
+          "before": "72%",
+          "after": "95%",
+          "improvement": "+32%"
+        },
+        {
+          "label": "Customer Satisfaction",
+          "before": "6.8/10",
+          "after": "8.8/10",
+          "improvement": "+29%"
+        }
+      ],
+      "testimonial": {
+        "quote": "The Parking Guys helped us turn parking from a traveler pain point into a seamless part of the journey. Revenue growth exceeded all expectations.",
+        "author": "Doug Kreulen",
+        "title": "President & CEO, BNA"
+      },
+      "image": "bna-airport-case-study.jpg",
+      "duration": "5 months",
+      "roi": "380%"
+    },
+    {
+      "id": "university-campus",
+      "title": "University Solves Parking Crisis with Smart Solutions",
+      "client": "Vanderbilt University",
+      "location": "Nashville, TN",
+      "industry": "Education",
+      "challenge": "Students and faculty faced daily parking struggles with limited spaces and confusing permit systems. Campus safety was concerned about unauthorized vehicles.",
+      "solution": "Deployed comprehensive campus parking with permit management, real-time availability, mobile payments, and integrated security systems.",
+      "results": {
+        "permit_compliance": "96%",
+        "student_satisfaction": "87%",
+        "security_incidents": "70%",
+        "operational_efficiency": "55%"
+      },
+      "metrics": [
+        {
+          "label": "Permit Violation Rate",
+          "before": "25%",
+          "after": "4%",
+          "improvement": "-84%"
+        },
+        {
+          "label": "Student Satisfaction Score",
+          "before": "5.2/10",
+          "after": "8.7/10",
+          "improvement": "+67%"
+        },
+        {
+          "label": "Security Response Time",
+          "before": "15 minutes",
+          "after": "5 minutes",
+          "improvement": "-67%"
+        }
+      ],
+      "testimonial": {
+        "quote": "Parking was a major source of student frustration. Now it's one less thing they have to worry about, allowing them to focus on their education.",
+        "author": "Susan R. Wente",
+        "title": "Provost & Vice Chancellor"
+      },
+      "image": "vanderbilt-case-study.jpg",
+      "duration": "6 months",
+      "roi": "220%"
+    }
+  ],
+  "summary_stats": {
+    "total_clients": "150+",
+    "total_spaces_managed": "75,000+",
+    "average_revenue_increase": "38%",
+    "average_satisfaction_improvement": "45%",
+    "total_roi": "285%"
+  }
+}

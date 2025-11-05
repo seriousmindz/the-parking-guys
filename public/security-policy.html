@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Security Policy - The Parking Company Worldwide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 { color: #C41E3A; border-bottom: 3px solid #FF6B35; padding-bottom: 10px; }
+        h2 { color: #C41E3A; margin-top: 30px; }
+        h3 { color: #FF6B35; margin-top: 20px; }
+        .contact-box {
+            background: #f5f5f5;
+            border-left: 4px solid #C41E3A;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        ul { line-height: 1.8; }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .last-updated {
+            color: #666;
+            font-style: italic;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Security Policy</h1>
+    <p><strong>The Parking Company Worldwide</strong> | Last Updated: October 23, 2025</p>
+
+    <h2>1. Overview</h2>
+    <p>The Parking Company Worldwide is committed to protecting the security and privacy of our customers, partners, and stakeholders. This security policy outlines our approach to information security and our responsible disclosure program.</p>
+
+    <h2>2. Security Commitment</h2>
+    <p>We take security seriously and implement industry-standard security measures including:</p>
+    <ul>
+        <li><strong>Encryption:</strong> All data transmitted between users and our servers is encrypted using TLS 1.3</li>
+        <li><strong>Access Control:</strong> Strict authentication and authorization mechanisms</li>
+        <li><strong>Regular Audits:</strong> Periodic security assessments and vulnerability scans</li>
+        <li><strong>Data Protection:</strong> Secure storage and handling of sensitive information</li>
+        <li><strong>Incident Response:</strong> 24/7 monitoring and rapid response procedures</li>
+        <li><strong>Employee Training:</strong> Regular security awareness training for all staff</li>
+    </ul>
+
+    <h2>3. Responsible Disclosure Program</h2>
+    <p>We welcome reports from security researchers and the community. If you discover a security vulnerability, please report it responsibly.</p>
+
+    <div class="contact-box">
+        <h3>How to Report a Vulnerability</h3>
+        <p><strong>Email:</strong> <a href="mailto:info@theparkingguys.com">info@theparkingguys.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+18779088271">(877) 908-8271</a></p>
+        <p><strong>Address:</strong> 604 Gallatin Ave #216, Nashville, TN 37206</p>
+    </div>
+
+    <h3>What to Include in Your Report</h3>
+    <ul>
+        <li>Detailed description of the vulnerability</li>
+        <li>Steps to reproduce the issue</li>
+        <li>Potential impact and severity assessment</li>
+        <li>Any proof-of-concept code or screenshots</li>
+        <li>Your contact information for follow-up</li>
+    </ul>
+
+    <h3>Our Commitment to Researchers</h3>
+    <ul>
+        <li>We will acknowledge receipt of your report within 48 hours</li>
+        <li>We will provide regular updates on our progress</li>
+        <li>We will credit researchers who report valid vulnerabilities (unless anonymity is requested)</li>
+        <li>We will not pursue legal action against researchers who follow responsible disclosure</li>
+    </ul>
+
+    <h2>4. Scope</h2>
+    <p>This security policy applies to:</p>
+    <ul>
+        <li>theparkingguys.com</li>
+        <li>parkingcompanyworldwide.com</li>
+        <li>ineedvalet.com</li>
+        <li>ineedvalet.ai</li>
+        <li>All subdomains and related infrastructure</li>
+    </ul>
+
+    <h2>5. Out of Scope</h2>
+    <p>The following are considered out of scope:</p>
+    <ul>
+        <li>Social engineering attacks</li>
+        <li>Physical security issues</li>
+        <li>Denial of Service (DoS) attacks</li>
+        <li>Spam or social media issues</li>
+        <li>Issues in third-party services we don't control</li>
+    </ul>
+
+    <h2>6. Security Features Implemented</h2>
+    
+    <h3>6.1 HTTP Security Headers</h3>
+    <ul>
+        <li><code>X-Content-Type-Options: nosniff</code> - Prevents MIME type sniffing</li>
+        <li><code>X-Frame-Options: SAMEORIGIN</code> - Prevents clickjacking attacks</li>
+        <li><code>X-XSS-Protection: 1; mode=block</code> - Enables XSS filtering</li>
+        <li><code>Referrer-Policy: strict-origin-when-cross-origin</code> - Controls referrer information</li>
+        <li><code>Permissions-Policy</code> - Restricts browser features</li>
+    </ul>
+
+    <h3>6.2 Content Security Policy (CSP)</h3>
+    <p>We implement a strict Content Security Policy to prevent XSS attacks and unauthorized resource loading:</p>
+    <ul>
+        <li>Scripts only from trusted sources</li>
+        <li>Styles only from trusted sources</li>
+        <li>Images from secure HTTPS sources</li>
+        <li>Frames restricted to trusted domains</li>
+        <li>Automatic upgrade of insecure requests</li>
+    </ul>
+
+    <h3>6.3 Data Protection</h3>
+    <ul>
+        <li><strong>HTTPS Everywhere:</strong> All traffic encrypted with TLS 1.3</li>
+        <li><strong>Secure Cookies:</strong> HttpOnly and Secure flags enabled</li>
+        <li><strong>Input Validation:</strong> All user inputs sanitized and validated</li>
+        <li><strong>Output Encoding:</strong> Proper encoding to prevent injection attacks</li>
+        <li><strong>SQL Injection Prevention:</strong> Parameterized queries and prepared statements</li>
+    </ul>
+
+    <h3>6.4 Authentication & Authorization</h3>
+    <ul>
+        <li>Strong password requirements</li>
+        <li>Multi-factor authentication (MFA) available</li>
+        <li>Session management with secure tokens</li>
+        <li>Automatic session timeout</li>
+        <li>Role-based access control (RBAC)</li>
+    </ul>
+
+    <h3>6.5 Infrastructure Security</h3>
+    <ul>
+        <li>Regular security updates and patches</li>
+        <li>Firewall protection</li>
+        <li>DDoS mitigation</li>
+        <li>Intrusion detection systems (IDS)</li>
+        <li>Regular backups and disaster recovery plans</li>
+        <li>Secure development lifecycle (SDLC)</li>
+    </ul>
+
+    <h2>7. Privacy & Data Handling</h2>
+    <p>We are committed to protecting user privacy:</p>
+    <ul>
+        <li>Minimal data collection - only what's necessary</li>
+        <li>Transparent data usage policies</li>
+        <li>Secure data storage with encryption at rest</li>
+        <li>Regular data retention reviews</li>
+        <li>Compliance with GDPR, CCPA, and other regulations</li>
+        <li>User rights to access, modify, and delete data</li>
+    </ul>
+
+    <h2>8. Third-Party Security</h2>
+    <p>We carefully vet all third-party services and ensure they meet our security standards:</p>
+    <ul>
+        <li>Regular security assessments of vendors</li>
+        <li>Data processing agreements in place</li>
+        <li>Limited data sharing with third parties</li>
+        <li>Monitoring of third-party security incidents</li>
+    </ul>
+
+    <h2>9. Incident Response</h2>
+    <p>In the event of a security incident:</p>
+    <ul>
+        <li>Immediate containment and mitigation</li>
+        <li>Thorough investigation and root cause analysis</li>
+        <li>Notification to affected parties as required by law</li>
+        <li>Implementation of corrective measures</li>
+        <li>Post-incident review and lessons learned</li>
+    </ul>
+
+    <h2>10. Compliance</h2>
+    <p>We maintain compliance with:</p>
+    <ul>
+        <li>Payment Card Industry Data Security Standard (PCI DSS)</li>
+        <li>General Data Protection Regulation (GDPR)</li>
+        <li>California Consumer Privacy Act (CCPA)</li>
+        <li>Americans with Disabilities Act (ADA)</li>
+        <li>Industry-specific regulations and standards</li>
+    </ul>
+
+    <h2>11. Security Awareness</h2>
+    <p>We promote security awareness through:</p>
+    <ul>
+        <li>Regular employee training programs</li>
+        <li>Security best practices documentation</li>
+        <li>Phishing simulation exercises</li>
+        <li>Security bulletins and updates</li>
+    </ul>
+
+    <h2>12. Contact Information</h2>
+    <div class="contact-box">
+        <p><strong>Security Team:</strong> <a href="mailto:info@theparkingguys.com">info@theparkingguys.com</a></p>
+        <p><strong>General Inquiries:</strong> <a href="mailto:info@theparkingguys.com">info@theparkingguys.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+18779088271">(877) 908-8271</a></p>
+        <p><strong>Address:</strong> 604 Gallatin Ave #216, Nashville, TN 37206</p>
+    </div>
+
+    <h2>13. Policy Updates</h2>
+    <p>This security policy is reviewed and updated regularly. The last update was on October 23, 2025. We will notify users of significant changes to this policy.</p>
+
+    <h2>14. Acknowledgments</h2>
+    <p>We thank the security research community for their contributions to keeping our systems secure. Valid vulnerability reports are acknowledged on our security acknowledgments page.</p>
+
+    <div class="last-updated">
+        <p><strong>Last Updated:</strong> October 23, 2025</p>
+        <p><strong>Version:</strong> 1.0</p>
+        <p><strong>Next Review:</strong> January 23, 2026</p>
+    </div>
+
+    <p style="text-align: center; margin-top: 40px;">
+        <a href="/" style="color: #C41E3A; text-decoration: none; font-weight: bold;">← Back to Home</a>
+    </p>
+</body>
+</html>
+

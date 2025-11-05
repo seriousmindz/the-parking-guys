@@ -7,12 +7,12 @@
       "logo_text": "The Parking Guys",
       "tagline": "Park Smarter. Earn More. Delight Guests.",
       "colors": {
-        "primary": "#1C3D5A",
-        "secondary": "#0EA5E9",
-        "accent": "#10B981",
-        "neutral_dark": "#0B1220",
-        "neutral": "#6B7280",
-        "neutral_light": "#F3F4F6",
+        "primary": "#1E3A8A",
+        "secondary": "#F59E0B",
+        "accent": "#FBBF24",
+        "neutral_dark": "#1E293B",
+        "neutral": "#64748B",
+        "neutral_light": "#F8FAFC",
         "warning": "#F59E0B",
         "danger": "#EF4444"
       },
@@ -37,8 +37,9 @@
         "description": "Premium valet services in Music City",
         "services": ["Hotel Valet", "Event Parking", "Corporate Services", "Restaurant Valet"],
         "contact": {
-          "phone": "(615) 555-0123",
-          "email": "nashville@theparkingguys.com"
+          "phone": "(877) 908-8271",
+          "email": "info@theparkingguys.com",
+          "address": "604 Gallatin Ave #216, Nashville, TN 37206"
         }
       },
       "atlanta": {
@@ -47,8 +48,31 @@
         "description": "Professional parking solutions in the ATL",
         "services": ["Airport Parking", "Downtown Valet", "Stadium Events", "Medical Center Parking"],
         "contact": {
-          "phone": "(404) 555-0124",
-          "email": "atlanta@theparkingguys.com"
+          "phone": "(877) 908-8271",
+          "email": "info@theparkingguys.com",
+          "address": "809 Cleveland Ave SW Suite B, Atlanta, GA 30315"
+        }
+      },
+      "oklahoma": {
+        "name": "Oklahoma City",
+        "logo": "valet-okc-logo.png",
+        "description": "Expanding premium valet services to OKC",
+        "services": ["Corporate Parking", "Event Management", "Downtown Valet", "Medical Center Services"],
+        "contact": {
+          "phone": "(877) 908-8271",
+          "email": "info@theparkingguys.com",
+          "address": "Coming Soon - Oklahoma City, OK"
+        }
+      },
+      "alabama": {
+        "name": "Alabama",
+        "logo": "valet-alabama-logo.png",
+        "description": "Serving Huntsville & Birmingham with premium parking",
+        "services": ["Hospital Parking", "Corporate Services", "Event Valet", "Municipal Solutions"],
+        "contact": {
+          "phone": "(877) 908-8271",
+          "email": "info@theparkingguys.com",
+          "address": "Huntsville & Birmingham, AL"
         }
       }
     }
@@ -61,7 +85,7 @@
       { "label": "RFP & Procurement", "href": "/rfp-procurement" },
       { "label": "About", "href": "/about" },
       { "label": "Blog", "href": "/blog" },
-      { "label": "Book a Call", "href": "https://link.parkingcompanyworldwide.com/widget/booking/8VdpD7ZROxwIdpWvZpwn", "emphasis": true },
+      { "label": "Book a Parking Pro", "href": "https://link.parkingcompanyworldwide.com/widget/booking/8VdpD7ZROxwIdpWvZpwn", "emphasis": true },
       { "label": "Contact", "href": "/contact" }
     ]
   },

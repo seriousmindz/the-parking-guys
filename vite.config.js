@@ -11,4 +11,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    host: '0.0.0.0',
+    port: 8080,
+    allowedHosts: [
+      '8080-iy6pyvmep4c3tg5sk18c7-41554c03.manusvm.computer',
+      'localhost',
+      '127.0.0.1'
+    ]
+  }
 })

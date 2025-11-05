@@ -48,23 +48,6 @@ function App() {
   const [showRFP, setShowRFP] = useState(false)
   const [selectedRFPIndustry, setSelectedRFPIndustry] = useState(null)
   const [comments, setComments] = useState({})
-  const [showVideoModal, setShowVideoModal] = useState(false)
-
-  // Show video modal on page load
-  useEffect(() => {
-    const hasSeenVideo = sessionStorage.getItem('hasSeenIntroVideo');
-    if (!hasSeenVideo) {
-      const timer = setTimeout(() => {
-        setShowVideoModal(true);
-      }, 1000); // Show after 1 second
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  const handleCloseVideoModal = () => {
-    setShowVideoModal(false);
-    sessionStorage.setItem('hasSeenIntroVideo', 'true');
-  };
   const [newComment, setNewComment] = useState('')
   const [commentAuthor, setCommentAuthor] = useState('')
 
@@ -199,13 +182,13 @@ function App() {
                     if (item.label === 'RFP & Procurement') setShowRFP(true)
                     if (item.label === 'About') setShowAbout(true)
                   }}
-                  className="text-slate-600 hover:text-red-600 transition-colors font-medium"
+                  className="text-slate-600 hover:text-blue-600 transition-colors font-medium"
                 >
                   {item.label}
                 </button>
               ))}
               <Button 
-                className="bg-red-700 hover:bg-red-800"
+                className="bg-blue-800 hover:bg-blue-900"
                 onClick={() => window.open('https://link.parkingcompanyworldwide.com/widget/booking/8VdpD7ZROxwIdpWvZpwn', '_blank')}
               >
                 Book a Parking Pro
@@ -216,13 +199,9 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section 
-        className={`py-20 px-4 transition-all duration-1000 bg-cover bg-center bg-no-repeat relative ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-        style={{backgroundImage: 'url(/images/bg-hero-parking.jpg)'}}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/60 to-white/70"></div>
-        <div className="container mx-auto text-center relative z-10">
-          <Badge className="mb-6 bg-orange-100 text-red-800 hover:bg-orange-200">
+      <section className={`py-20 px-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="container mx-auto text-center">
+          <Badge className="mb-6 bg-blue-100 text-blue-800 hover:bg-blue-200">
             {parkingData.pages[0].content.hero.eyebrow}
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold text-slate-800 mb-6 leading-tight">
@@ -234,7 +213,7 @@ function App() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
-              className="bg-red-700 hover:bg-red-800 text-lg px-8 py-3"
+              className="bg-blue-800 hover:bg-blue-900 text-lg px-8 py-3"
               onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
             >
               {parkingData.pages[0].content.hero.primary_cta.label}
@@ -260,33 +239,12 @@ function App() {
         </div>
       </section>
 
-      {/* Get a Quote Section - Moved to Top */}
-      <section id="contact-form" className="py-16 px-4 bg-gradient-to-br from-red-50 to-orange-50 relative" style={{backgroundImage: 'url(/images/bg-get-quote.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-        <div className="absolute inset-0 bg-gradient-to-br from-red-50/85 to-orange-50/85"></div>
-        <div className="container mx-auto relative z-10">
+      {/* City Selection */}
+      <section className="py-16 px-4 bg-white">
+        <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">Get a Quote</h2>
-            <p className="text-xl text-slate-600">Contact us for a customized parking solution</p>
-          </div>
-          
-          <div className="max-w-md mx-auto text-center">
-            <Button 
-              size="lg" 
-              className="bg-red-600 hover:bg-red-700 text-white px-12 py-6 text-lg"
-              onClick={() => window.open('https://link.parkingcompanyworldwide.com/widget/form/b7LfgrcMyjqBQjJRMrS2', '_blank')}
-            >
-              Request a Quote
-              <ChevronRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-      </section>
-      {/* City Selection Section */}
-      <section className="py-16 px-4 bg-white relative" style={{backgroundImage: 'url(/images/bg-locations-cities.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/75 to-white/70"></div>
-        <div className="container mx-auto relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">Our Locations</h2>      <p className="text-xl text-slate-600">Professional valet services across major cities</p>
+            <h2 className="text-4xl font-bold text-slate-800 mb-4">Our Locations</h2>
+            <p className="text-xl text-slate-600">Professional valet services across major cities</p>
           </div>
           
           <div className="flex justify-center mb-8">
@@ -296,7 +254,7 @@ function App() {
                   key={cityKey}
                   variant={activeCity === cityKey ? "default" : "ghost"}
                   onClick={() => setActiveCity(cityKey)}
-                  className={`mx-1 ${activeCity === cityKey ? 'bg-red-700 text-white' : 'text-slate-600'}`}
+                  className={`mx-1 ${activeCity === cityKey ? 'bg-blue-800 text-white' : 'text-slate-600'}`}
                 >
                   {cities[cityKey].name}
                 </Button>
@@ -306,29 +264,28 @@ function App() {
 
           {/* Active City Display */}
           <div className="max-w-4xl mx-auto">
-            <Card className="overflow-hidden shadow-xl border-0 relative bg-cover bg-center" style={{backgroundImage: `url(/images/bg-${activeCity}-skyline.jpg)`}}>
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/90 to-slate-900/80"></div>
-              <CardContent className="p-0 relative z-10">
+            <Card className="overflow-hidden shadow-xl border-0 bg-gradient-to-r from-blue-800 to-blue-900">
+              <CardContent className="p-0">
                 <div className="grid md:grid-cols-2 gap-0">
                   <div className="p-8 text-white">
                     <div className="flex items-center space-x-4 mb-6">
                       <MapPin className="h-8 w-8" />
                       <h3 className="text-3xl font-bold">{cities[activeCity].name}</h3>
                     </div>
-                    <p className="text-orange-100 text-lg mb-6">{cities[activeCity].description}</p>
+                    <p className="text-blue-100 text-lg mb-6">{cities[activeCity].description}</p>
                     
                     <div className="space-y-4 mb-8">
                       <div className="flex items-center space-x-3">
-                        <Phone className="h-5 w-5 text-orange-200" />
-                        <span className="text-orange-100">{cities[activeCity].contact.phone}</span>
+                        <Phone className="h-5 w-5 text-blue-200" />
+                        <span className="text-blue-100">{cities[activeCity].contact.phone}</span>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <Mail className="h-5 w-5 text-orange-200" />
-                        <span className="text-orange-100">{cities[activeCity].contact.email}</span>
+                        <Mail className="h-5 w-5 text-blue-200" />
+                        <span className="text-blue-100">{cities[activeCity].contact.email}</span>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <MapPin className="h-5 w-5 text-orange-200" />
-                        <span className="text-orange-100">{cities[activeCity].contact.address}</span>
+                        <MapPin className="h-5 w-5 text-blue-200" />
+                        <span className="text-blue-100">{cities[activeCity].contact.address}</span>
                       </div>
                     </div>
 
@@ -337,8 +294,8 @@ function App() {
                         const IconComponent = getServiceIcon(service)
                         return (
                           <div key={index} className="flex items-center space-x-2 bg-white/10 rounded-lg p-3">
-                            <IconComponent className="h-5 w-5 text-orange-200" />
-                            <span className="text-sm font-medium text-orange-100">{service}</span>
+                            <IconComponent className="h-5 w-5 text-blue-200" />
+                            <span className="text-sm font-medium text-blue-100">{service}</span>
                           </div>
                         )
                       })}
@@ -359,10 +316,9 @@ function App() {
         </div>
       </section>
 
-      {/* Solutions Section */}
-      <section className="py-16 px-4 bg-slate-50 relative" style={{backgroundImage: 'url(/images/bg-solutions-industry.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-        <div className="absolute inset-0 bg-slate-50/80"></div>
-        <div className="container mx-auto relative z-10">
+      {/* Solutions Grid */}
+      <section className="py-16 px-4 bg-slate-50">
+        <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-slate-800 mb-4">Our Solutions</h2>
             <p className="text-xl text-slate-600">Tailored parking solutions for every industry</p>
@@ -371,26 +327,12 @@ function App() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {parkingData.pages[0].content.vertical_cards.map((card, index) => {
               const IconComponent = getSolutionIcon(card.title)
-              const imageMap = {
-                'Hospitality': '/images/hospitality-valet.jpg',
-                'Healthcare': '/images/healthcare-parking.jpg',
-                'Municipal & University': '/images/municipal-university-parking.jpg',
-                'Airports & Transportation': '/images/airport-parking.jpg',
-                'Stadiums & Venues': '/images/stadium-venue-parking.jpg'
-              }
               return (
-                <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 bg-white overflow-hidden">
-                  <div className="h-48 overflow-hidden">
-                    <img 
-                      src={imageMap[card.title]} 
-                      alt={card.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 bg-white">
                   <CardHeader>
                     <div className="flex items-center space-x-3 mb-3">
-                      <div className="p-3 bg-orange-100 rounded-lg group-hover:bg-red-600 transition-colors">
-                        <IconComponent className="h-6 w-6 text-red-600 group-hover:text-white" />
+                      <div className="p-3 bg-blue-100 rounded-lg group-hover:bg-blue-600 transition-colors">
+                        <IconComponent className="h-6 w-6 text-blue-600 group-hover:text-white" />
                       </div>
                       <CardTitle className="text-xl">{card.title}</CardTitle>
                     </div>
@@ -405,123 +347,6 @@ function App() {
         </div>
       </section>
 
-      {/* Transportation Services */}
-      <section className="py-16 px-4 bg-white relative" style={{backgroundImage: 'url(/images/bg-transportation-luxury.jpg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-        <div className="absolute inset-0 bg-white/75"></div>
-        <div className="container mx-auto relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">Transportation Services</h2>
-            <p className="text-xl text-slate-600">Luxury cars, classic vehicles, and golf cart rentals for weddings and special events</p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Classic Cars for Weddings */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-slate-50 to-white overflow-hidden">
-              <div className="h-64 overflow-hidden">
-                <img 
-                  src="/images/classic-rolls-royce.png" 
-                  alt="Classic Rolls Royce for Weddings"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-2xl text-slate-800">Classic Cars for Weddings</CardTitle>
-                <CardDescription className="text-slate-600 leading-relaxed mt-3">
-                  Arrive in timeless elegance with our fleet of meticulously maintained classic vehicles. Perfect for weddings, anniversaries, and special occasions.
-                </CardDescription>
-                <div className="mt-4 space-y-2 text-sm text-slate-600">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-red-600" />
-                    <span>Vintage Rolls Royce & Classic Models</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-red-600" />
-                    <span>Professional Chauffeur Service</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-red-600" />
-                    <span>Red Carpet Treatment</span>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-
-            {/* Luxury Car Service */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-slate-50 to-white overflow-hidden">
-              <div className="h-64 overflow-hidden">
-                <img 
-                  src="/images/luxury-valet-service.png" 
-                  alt="Luxury Valet Service"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-2xl text-slate-800">Luxury Car Service</CardTitle>
-                <CardDescription className="text-slate-600 leading-relaxed mt-3">
-                  Experience premium transportation with our fleet of luxury vehicles and professionally trained chauffeurs for executive travel and special events.
-                </CardDescription>
-                <div className="mt-4 space-y-2 text-sm text-slate-600">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-red-600" />
-                    <span>Mercedes, BMW, Porsche Fleet</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-red-600" />
-                    <span>Executive Chauffeur Service</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-red-600" />
-                    <span>Airport & Event Transportation</span>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-
-            {/* Golf Cart Rentals */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-slate-50 to-white overflow-hidden">
-              <div className="h-64 overflow-hidden">
-                <img 
-                  src="/images/golf-cart-parking-guys.png" 
-                  alt="The Parking Guys Golf Cart Rentals"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-2xl text-slate-800">Golf Cart Rentals</CardTitle>
-                <CardDescription className="text-slate-600 leading-relaxed mt-3">
-                  Convenient golf cart rentals for large venues, weddings, corporate events, and festivals. Perfect for guest transportation across expansive properties.
-                </CardDescription>
-                <div className="mt-4 space-y-2 text-sm text-slate-600">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-red-600" />
-                    <span>Wedding & Event Transportation</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-red-600" />
-                    <span>Venue & Campus Shuttles</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-red-600" />
-                    <span>Customizable Branding Available</span>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </div>
-
-          <div className="text-center mt-12">
-            <Button 
-              size="lg" 
-              className="bg-red-600 hover:bg-red-700 text-white px-12 py-6 text-lg"
-              onClick={() => window.open('https://link.parkingcompanyworldwide.com/widget/form/b7LfgrcMyjqBQjJRMrS2', '_blank')}
-            >
-              Book Transportation Services
-              <ChevronRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* The PG Way */}
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto">
@@ -532,84 +357,47 @@ function App() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {parkingData.pages[0].content.pg_way.pillars.map((pillar, index) => {
-              const pillarImages = [
-                '/images/pg-way-hospitality.jpg',
-                '/images/pg-way-safety.jpg',
-                '/images/pg-way-revenue.jpg',
-                '/images/pg-way-transparent.jpg'
-              ];
-              return (
-                <Card key={index} className="text-center border-0 overflow-hidden hover:shadow-xl transition-all hover:scale-105">
-                  <div className="relative h-48 overflow-hidden">
-                    <img 
-                      src={pillarImages[index]} 
-                      alt={pillar.title}
-                      className="w-full h-full object-cover transition-transform hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+            {parkingData.pages[0].content.pg_way.pillars.map((pillar, index) => (
+              <Card key={index} className="text-center border-0 bg-gradient-to-b from-slate-50 to-white hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="mx-auto mb-4 p-4 bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center">
+                    <Star className="h-8 w-8 text-blue-600" />
                   </div>
-                  <CardHeader>
-                    <CardTitle className="text-lg text-slate-800">{pillar.title}</CardTitle>
-                    <CardDescription className="text-slate-600">
-                      {pillar.text}
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-              );
-            })}
+                  <CardTitle className="text-lg">{pillar.title}</CardTitle>
+                  <CardDescription className="text-slate-600">
+                    {pillar.text}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Technology Preview */}
-      <section className="py-16 px-4 bg-slate-900 text-white relative bg-cover bg-center" style={{backgroundImage: 'url(/images/bg-smart-parking-tech.jpg)'}}>
-        <div className="absolute inset-0 bg-slate-900/70"></div>
-        <div className="container mx-auto relative z-10">
+      <section className="py-16 px-4 bg-slate-900 text-white">
+        <div className="container mx-auto">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-6">
-              <img src="/images/ineedvalet-logo.jpg" alt="INeedValet" className="h-16 w-auto" />
-            </div>
             <h2 className="text-4xl font-bold mb-4">
               {parkingData.pages[0].content.technology_preview.headline}
             </h2>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {parkingData.pages[0].content.technology_preview.features.map((feature, index) => {
-              const techImageMap = {
-                'Valet OS': '/images/tech-dashboard.jpg',
-                'Gateless Readiness': '/images/tech-alpr-system.jpg',
-                'Revenue Management': '/images/tech-revenue-management.png',
-                'Distribution': '/images/tech-dynamic-pricing.jpg',
-                'Remote Help Desk': '/images/tech-mobile-app.png'
-              }
-              return (
-                <Card key={index} className="bg-slate-800 border-slate-700 text-white hover:bg-slate-700 transition-colors overflow-hidden group">
-                  <div className="h-40 overflow-hidden">
-                    <img 
-                      src={techImageMap[feature.title]} 
-                      alt={feature.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="text-lg text-orange-400">{feature.title}</CardTitle>
-                    <CardDescription className="text-slate-300">
-                      {feature.text}
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-              )
-            })}
+            {parkingData.pages[0].content.technology_preview.features.map((feature, index) => (
+              <Card key={index} className="bg-slate-800 border-slate-700 text-white hover:bg-slate-700 transition-colors">
+                <CardHeader>
+                  <CardTitle className="text-lg text-blue-400">{feature.title}</CardTitle>
+                  <CardDescription className="text-slate-300">
+                    {feature.text}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
           </div>
           
           <div className="text-center mt-12">
-            <Button 
-              variant="outline" 
-              className="border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white"
-              onClick={() => setShowTechnology(true)}
-            >
+            <Button variant="outline" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white">
               {parkingData.pages[0].content.technology_preview.cta.label}
               <ChevronRight className="ml-2 h-5 w-5" />
             </Button>
@@ -617,20 +405,53 @@ function App() {
         </div>
       </section>
 
+      {/* Contact Form Section */}
+      <section id="contact-form" className="py-16 px-4 bg-white">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-800 mb-4">Get Started Today</h2>
+            <p className="text-xl text-slate-600">Contact us for a customized parking solution</p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <Card className="shadow-xl border-0">
+              <CardContent className="p-8">
+                <iframe
+                  src="https://link.parkingcompanyworldwide.com/widget/form/b7LfgrcMyjqBQjJRMrS2"
+                  style={{width: '100%', height: '600px', border: 'none', borderRadius: '3px'}}
+                  id="inline-b7LfgrcMyjqBQjJRMrS2" 
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Valet Nash/Atl"
+                  data-height="1787"
+                  data-layout-iframe-id="inline-b7LfgrcMyjqBQjJRMrS2"
+                  data-form-id="b7LfgrcMyjqBQjJRMrS2"
+                  title="Valet Nash/Atl"
+                />
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-red-700 to-orange-600 text-white relative bg-cover bg-center" style={{backgroundImage: 'url(/images/bg-luxury-valet-service.jpg)'}}>
-        <div className="absolute inset-0 bg-gradient-to-r from-red-800/70 to-orange-700/70"></div>
-        <div className="container mx-auto text-center relative z-10">
+      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">Ready to modernize your parking program?</h2>
-          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Request a tailored plan and 120‑day pilot structure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
               variant="secondary" 
-              className="bg-white text-red-600 hover:bg-orange-50"
-              onClick={() => window.location.href = 'tel:8779088271'}
+              className="bg-white text-blue-600 hover:bg-blue-50"
+              onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Talk to an Expert
               <ChevronRight className="ml-2 h-5 w-5" />
@@ -638,129 +459,10 @@ function App() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-red-600"
-              onClick={() => setShowRfp(true)}
+              className="border-white text-white hover:bg-white hover:text-blue-600"
+              onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Download RFP Kit
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Google Review Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-yellow-50 to-orange-50">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">Love Our Service?</h2>
-            <p className="text-xl text-slate-600">Share your experience and help others discover our exceptional parking services</p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            {/* Left Review Card */}
-            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-              <div className="flex items-center mb-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                    K
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h3 className="font-bold text-slate-800">Kerenza Mann</h3>
-                  <div className="flex items-center">
-                    <span className="text-yellow-400">★★★★★</span>
-                    <span className="text-sm text-slate-500 ml-2">6 months ago</span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-slate-600 leading-relaxed">
-                "From the moment I pulled up, the valet service was top-notch. The attendant was incredibly friendly, professional, and efficient. They greeted me with a smile, clearly explained the process, and took great care of my vehicle."
-              </p>
-            </div>
-
-            {/* Center - Google Review Flyer */}
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-              <img 
-                src="/images/google-review-flyer.jpeg" 
-                alt="Leave us a Google Review"
-                className="w-full h-auto"
-              />
-            </div>
-
-            {/* Right Review Card */}
-            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-              <div className="flex items-center mb-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                    D
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h3 className="font-bold text-slate-800">Denise Tschida</h3>
-                  <div className="flex items-center">
-                    <span className="text-yellow-400">★★★★★</span>
-                    <span className="text-sm text-slate-500 ml-2">Google Review</span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-slate-600 leading-relaxed">
-                "Our parking staff was polite, well dressed and ready to work as promised. The Parking Guys team was great at a school event this week! They worked quick and were all so pleasant."
-              </p>
-            </div>
-          </div>
-
-          {/* Second Row of Reviews */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 max-w-5xl mx-auto">
-            {/* Third Review Card */}
-            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-              <div className="flex items-center mb-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                    K
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h3 className="font-bold text-slate-800">Kevin Smith</h3>
-                  <div className="flex items-center">
-                    <span className="text-yellow-400">★★★★★</span>
-                    <span className="text-sm text-slate-500 ml-2">Verified Customer</span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-slate-600 leading-relaxed">
-                "Highly recommend Craig and his people! Very professional and great communication. Thank you. I recommend using The Parking Company Worldwide LLC for all your parking needs."
-              </p>
-            </div>
-
-            {/* Fourth Review Card */}
-            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-              <div className="flex items-center mb-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                    J
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h3 className="font-bold text-slate-800">James (Valet Team)</h3>
-                  <div className="flex items-center">
-                    <span className="text-yellow-400">★★★★★</span>
-                    <span className="text-sm text-slate-500 ml-2">Customer Highlight</span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-slate-600 leading-relaxed">
-                "James was extra helpful and walked me to and from my car. The Parking Guys team was great at a school event this week! They worked quick and were all so pleasant."
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center mt-8">
-            <Button 
-              size="lg" 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 text-lg"
-              onClick={() => window.open('https://g.page/r/CSA_F1TjVBPFEAI/review', '_blank')}
-            >
-              Leave a Google Review
-              <ChevronRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </div>
@@ -823,61 +525,11 @@ function App() {
             </div>
           </div>
           
-          {/* Our Network Section */}
-          <div className="border-t border-slate-800 mt-8 pt-8">
-            <h4 className="font-semibold mb-6 text-center text-xl">Our Network</h4>
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Parking & Valet Services */}
-              <div>
-                <h5 className="font-semibold mb-3 text-white">Parking & Valet Services</h5>
-                <ul className="space-y-2 text-slate-400 text-sm">
-                  <li><a href="https://theparkingguys.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">The Parking Guys</a></li>
-                  <li><a href="https://parkingcompanyworldwide.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Parking Company Worldwide</a></li>
-                  <li><a href="https://theparkingcoworldwide.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">The Parking Co Worldwide</a></li>
-                  <li><a href="https://valetparkingnashville.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Valet Parking Nashville</a></li>
-                  <li><a href="https://franchisetheparkingguys.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Franchise The Parking Guys</a></li>
-                  <li><a href="https://proposalparkingguys.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Proposal Parking Guys</a></li>
-                </ul>
-              </div>
-
-              {/* Technology & AI Solutions */}
-              <div>
-                <h5 className="font-semibold mb-3 text-white">Technology & AI Solutions</h5>
-                <ul className="space-y-2 text-slate-400 text-sm">
-                  <li><a href="https://ineedvalet.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">INeedValet.com</a></li>
-                  <li><a href="https://ineedvalet.ai" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">INeedValet.ai</a></li>
-                  <li><a href="https://myaiassistant.pro" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">My AI Assistant Pro</a></li>
-                  <li><a href="https://seriousmindz.ai" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Serious Mindz AI</a></li>
-                  <li><a href="https://seriousmindz.info" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Serious Mindz Info</a></li>
-                </ul>
-              </div>
-
-              {/* Partner Companies */}
-              <div>
-                <h5 className="font-semibold mb-3 text-white">Partner Companies</h5>
-                <ul className="space-y-2 text-slate-400 text-sm">
-                  <li><a href="https://partynridenashville.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Party N Ride Nashville</a></li>
-                  <li><a href="https://www.muscityjetcars.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Music City Jet Cars</a></li>
-                  <li><a href="https://pivottechschool.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Pivot Tech School</a></li>
-                  <li><a href="https://www.arisechurchdecatur.org/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Arise Church Decatur</a></li>
-                  <li><a href="https://www.180degreefloors.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">180 Degree Floors</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
           <div className="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400">
             <div className="flex justify-center mb-4">
               <img src={parkingCompanyLogo} alt="The Parking Company Worldwide" className="h-8 w-auto opacity-60" />
             </div>
-            <p className="mb-3">&copy; 2026 The Parking Company Worldwide LLC. All rights reserved.</p>
-            <div className="flex justify-center gap-6 text-sm">
-              <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Privacy Policy</a>
-              <span>|</span>
-              <a href="/security-policy.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Security Policy</a>
-              <span>|</span>
-              <a href="/.well-known/security.txt" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Security Contact</a>
-            </div>
+            <p>&copy; 2024 The Parking Company Worldwide LLC. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -905,7 +557,7 @@ function App() {
                   <div className="mb-8">
                     <h3 className="text-lg font-semibold mb-4 text-gray-900">Categories</h3>
                     <div className="flex flex-wrap gap-3">
-                      <span className="px-3 py-1 rounded-full text-sm font-medium text-white bg-red-600">
+                      <span className="px-3 py-1 rounded-full text-sm font-medium text-white bg-blue-600">
                         Technology (5)
                       </span>
                       <span className="px-3 py-1 rounded-full text-sm font-medium text-white bg-green-600">
@@ -914,9 +566,9 @@ function App() {
                     </div>
                   </div>
                   
-                  <div className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-orange-200">
+                  <div className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
                     <div className="flex items-start justify-between mb-4">
-                      <span className="px-3 py-1 bg-red-600 text-white text-sm font-medium rounded-full">Featured</span>
+                      <span className="px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded-full">Featured</span>
                       <span className="text-sm text-gray-500">September 28, 2025</span>
                     </div>
                     <h3 className="text-xl font-bold mb-2 text-gray-900">The Future of Parking: 2025 and Beyond</h3>
@@ -947,7 +599,7 @@ function App() {
                     >
                       <div className="p-6">
                         <div className="flex items-center justify-between mb-3">
-                          <span className="px-2 py-1 text-xs font-medium rounded-full text-white bg-red-600">Technology</span>
+                          <span className="px-2 py-1 text-xs font-medium rounded-full text-white bg-blue-600">Technology</span>
                           <span className="text-sm text-gray-500">September 25, 2025</span>
                         </div>
                         <h3 className="text-lg font-semibold mb-2 text-gray-900">The AI Revolution in Parking Management</h3>
@@ -982,7 +634,7 @@ function App() {
                     >
                       <div className="p-6">
                         <div className="flex items-center justify-between mb-3">
-                          <span className="px-2 py-1 text-xs font-medium rounded-full text-white bg-red-600">Technology</span>
+                          <span className="px-2 py-1 text-xs font-medium rounded-full text-white bg-blue-600">Technology</span>
                           <span className="text-sm text-gray-500">September 22, 2025</span>
                         </div>
                         <h3 className="text-lg font-semibold mb-2 text-gray-900">Mobile Payment Evolution in Parking</h3>
@@ -1052,7 +704,7 @@ function App() {
                         setShowBlog(false);
                         document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors"
+                      className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                     >
                       Contact Our Parking Experts
                     </button>
@@ -1076,7 +728,7 @@ function App() {
                     ← Back to Blog
                   </button>
                   <span className={`px-3 py-1 rounded-full text-sm font-medium text-white ${
-                    selectedBlogPost.category === 'Technology' ? 'bg-red-600' : 'bg-green-600'
+                    selectedBlogPost.category === 'Technology' ? 'bg-blue-600' : 'bg-green-600'
                   }`}>
                     {selectedBlogPost.category}
                   </span>
@@ -1155,18 +807,18 @@ function App() {
                           placeholder="Your name"
                           value={commentAuthor}
                           onChange={(e) => setCommentAuthor(e.target.value)}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-orange-500"
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         />
                         <textarea
                           placeholder="Share your thoughts..."
                           value={newComment}
                           onChange={(e) => setNewComment(e.target.value)}
                           rows={4}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-orange-500"
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         />
                         <button
                           onClick={() => addComment(selectedBlogPost.id)}
-                          className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors"
+                          className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                         >
                           Post Comment
                         </button>
@@ -1176,7 +828,7 @@ function App() {
                     {/* Comments List */}
                     <div className="space-y-6">
                       {(comments[selectedBlogPost.id] || []).map((comment) => (
-                        <div key={comment.id} className="border-l-4 border-orange-200 pl-6">
+                        <div key={comment.id} className="border-l-4 border-blue-200 pl-6">
                           <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
                             <div className="flex items-center justify-between mb-3">
                               <div>
@@ -1214,7 +866,7 @@ function App() {
                     </div>
 
                     {/* Contact CTA */}
-                    <div className="mt-8 text-center p-6 bg-orange-50 rounded-lg">
+                    <div className="mt-8 text-center p-6 bg-blue-50 rounded-lg">
                       <h4 className="text-lg font-semibold text-gray-900 mb-2">Want to Learn More?</h4>
                       <p className="text-gray-600 mb-4">Connect with our parking experts to discuss your specific needs.</p>
                       <button 
@@ -1223,7 +875,7 @@ function App() {
                           setShowBlog(false)
                           document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })
                         }}
-                        className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors"
+                        className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                       >
                         Contact Our Experts
                       </button>
@@ -1257,7 +909,7 @@ function App() {
                   {/* Overview Section */}
                   <div className="mb-8 text-center">
                     <p className="text-lg text-gray-600 mb-6">{rfpData.rfp.description}</p>
-                    <div className="bg-orange-50 rounded-lg p-6">
+                    <div className="bg-blue-50 rounded-lg p-6">
                       <h3 className="text-2xl font-bold text-gray-900 mb-4">{rfpData.rfp.overview.title}</h3>
                       <p className="text-gray-600 mb-6">{rfpData.rfp.overview.subtitle}</p>
                       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -1285,7 +937,7 @@ function App() {
                           <h4 className="text-lg font-semibold text-gray-900 mb-3 text-center">{industry.name}</h4>
                           <p className="text-gray-600 text-sm text-center">{industry.description}</p>
                           <div className="mt-4 text-center">
-                            <span className="text-red-600 text-sm font-medium">View RFP Template →</span>
+                            <span className="text-blue-600 text-sm font-medium">View RFP Template →</span>
                           </div>
                         </div>
                       ))}
@@ -1298,12 +950,12 @@ function App() {
                     <div className="grid md:grid-cols-5 gap-6">
                       {rfpData.rfp.procurement_process.steps.map((step, index) => (
                         <div key={index} className="text-center">
-                          <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                          <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                             {step.step}
                           </div>
                           <h4 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</h4>
                           <p className="text-gray-600 text-sm mb-2">{step.description}</p>
-                          <p className="text-red-600 text-sm font-medium">{step.duration}</p>
+                          <p className="text-blue-600 text-sm font-medium">{step.duration}</p>
                         </div>
                       ))}
                     </div>
@@ -1318,7 +970,7 @@ function App() {
                           <h4 className="text-lg font-semibold text-gray-900 mb-2">{doc.title}</h4>
                           <p className="text-gray-600 text-sm mb-3">{doc.description}</p>
                           <div className="flex items-center justify-between">
-                            <span className="bg-orange-100 text-red-800 px-2 py-1 rounded text-xs font-medium">{doc.type}</span>
+                            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">{doc.type}</span>
                             <button 
                               onClick={() => {
                                 const downloads = {
@@ -1334,7 +986,7 @@ function App() {
                                 link.click()
                                 document.body.removeChild(link)
                               }}
-                              className="text-red-600 text-sm font-medium hover:text-red-700"
+                              className="text-blue-600 text-sm font-medium hover:text-blue-700"
                             >
                               Download
                             </button>
@@ -1345,7 +997,7 @@ function App() {
                   </div>
 
                   {/* Contact CTA */}
-                  <div className="text-center p-8 bg-orange-50 rounded-lg">
+                  <div className="text-center p-8 bg-blue-50 rounded-lg">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">{rfpData.rfp.contact.title}</h3>
                     <p className="text-gray-600 mb-6">{rfpData.rfp.contact.description}</p>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
@@ -1361,7 +1013,7 @@ function App() {
                       <p className="text-gray-600 mb-4">{rfpData.rfp.contact.cta.subtitle}</p>
                       <button 
                         onClick={() => window.open(rfpData.rfp.contact.cta.booking_link, '_blank')}
-                        className="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors text-lg font-medium"
+                        className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors text-lg font-medium"
                       >
                         {rfpData.rfp.contact.cta.button_text}
                       </button>
@@ -1405,7 +1057,7 @@ function App() {
                           <ul className="space-y-2">
                             {selectedRFPIndustry.rfp_template.key_requirements.map((req, index) => (
                               <li key={index} className="flex items-center gap-3">
-                                <div className="w-2 h-2 bg-orange-500 rounded-full flex-shrink-0"></div>
+                                <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
                                 <span className="text-gray-700">{req}</span>
                               </li>
                             ))}
@@ -1428,12 +1080,12 @@ function App() {
 
                     {/* Budget Considerations */}
                     <div>
-                      <div className="bg-orange-50 rounded-lg p-6 mb-6">
+                      <div className="bg-blue-50 rounded-lg p-6 mb-6">
                         <h4 className="text-xl font-semibold text-gray-900 mb-4">Budget Considerations</h4>
                         
                         <div className="mb-4">
                           <h5 className="text-lg font-medium text-gray-900 mb-2">Typical Investment Range</h5>
-                          <p className="text-2xl font-bold text-red-600 mb-2">{selectedRFPIndustry.budget_considerations.typical_range}</p>
+                          <p className="text-2xl font-bold text-blue-600 mb-2">{selectedRFPIndustry.budget_considerations.typical_range}</p>
                           <p className="text-gray-600">Expected ROI: {selectedRFPIndustry.budget_considerations.roi_expectation}</p>
                         </div>
 
@@ -1457,7 +1109,7 @@ function App() {
                         <div className="space-y-3">
                           <button 
                             onClick={() => window.open(rfpData.rfp.contact.cta.booking_link, '_blank')}
-                            className="w-full bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors font-medium"
+                            className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
                           >
                             Schedule RFP Consultation
                           </button>
@@ -1507,12 +1159,12 @@ function App() {
                 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                   {solutionsData.solutions.industries.map((industry, index) => (
-                    <Card key={industry.id} className="cursor-pointer hover:shadow-lg transition-all duration-300 border-2 hover:border-red-700">
+                    <Card key={industry.id} className="cursor-pointer hover:shadow-lg transition-all duration-300 border-2 hover:border-blue-800">
                       <CardContent className="p-6" onClick={() => setSelectedIndustry(industry)}>
                         <div className="text-center">
                           <div className="text-4xl mb-4">{industry.icon}</div>
                           <h4 className="text-xl font-bold text-slate-800 mb-2">{industry.name}</h4>
-                          <p className="text-red-800 font-semibold mb-3">{industry.tagline}</p>
+                          <p className="text-blue-800 font-semibold mb-3">{industry.tagline}</p>
                           <p className="text-slate-600 text-sm mb-4">{industry.description}</p>
                           
                           <div className="grid grid-cols-2 gap-2 mb-4">
@@ -1521,12 +1173,12 @@ function App() {
                               <div className="text-xs text-slate-500">Improvement</div>
                             </div>
                             <div className="text-center">
-                              <div className="text-2xl font-bold text-red-800">{industry.implementation_time}</div>
+                              <div className="text-2xl font-bold text-blue-800">{industry.implementation_time}</div>
                               <div className="text-xs text-slate-500">Implementation</div>
                             </div>
                           </div>
                           
-                          <div className="flex items-center justify-center text-red-800">
+                          <div className="flex items-center justify-center text-blue-800">
                             <span className="text-sm font-medium">Learn More</span>
                             <ChevronRight className="ml-1 h-4 w-4" />
                           </div>
@@ -1542,7 +1194,7 @@ function App() {
                     {solutionsData.solutions.cross_industry_benefits.benefits.map((benefit, index) => (
                       <div key={index} className="text-center">
                         <h5 className="font-bold mb-2">{benefit.category}</h5>
-                        <p className="text-sm text-orange-100 mb-2">{benefit.description}</p>
+                        <p className="text-sm text-blue-100 mb-2">{benefit.description}</p>
                         <div className="text-lg font-semibold text-yellow-400">{benefit.impact}</div>
                       </div>
                     ))}
@@ -1553,7 +1205,7 @@ function App() {
               <div className="p-6">
                 <button 
                   onClick={() => setSelectedIndustry(null)}
-                  className="flex items-center text-red-800 hover:text-red-900 mb-6"
+                  className="flex items-center text-blue-800 hover:text-blue-900 mb-6"
                 >
                   <ChevronRight className="h-4 w-4 rotate-180 mr-2" />
                   Back to All Solutions
@@ -1565,7 +1217,7 @@ function App() {
                       <span className="text-4xl mr-4">{selectedIndustry.icon}</span>
                       <div>
                         <h3 className="text-3xl font-bold text-slate-800">{selectedIndustry.name}</h3>
-                        <p className="text-xl text-red-800 font-semibold">{selectedIndustry.tagline}</p>
+                        <p className="text-xl text-blue-800 font-semibold">{selectedIndustry.tagline}</p>
                       </div>
                     </div>
                     
@@ -1615,7 +1267,7 @@ function App() {
                       <div className="grid grid-cols-2 gap-4 text-center">
                         {Object.entries(selectedIndustry.metrics).map(([key, value], index) => (
                           <div key={index}>
-                            <div className="text-2xl font-bold text-red-800">{value}</div>
+                            <div className="text-2xl font-bold text-blue-800">{value}</div>
                             <div className="text-sm text-slate-600 capitalize">{key.replace('_', ' ')}</div>
                           </div>
                         ))}
@@ -1674,7 +1326,7 @@ function App() {
                       onClick={() => setActiveTechSection(section.id)}
                       className={`w-full text-left p-3 rounded-lg transition-colors ${
                         activeTechSection === section.id 
-                          ? 'bg-red-600 text-white' 
+                          ? 'bg-blue-600 text-white' 
                           : 'hover:bg-slate-200 text-slate-700'
                       }`}
                     >
@@ -1697,9 +1349,9 @@ function App() {
                         <Card key={system.id} className="cursor-pointer hover:shadow-lg transition-shadow">
                           <CardContent className="p-6" onClick={() => setActiveTechSection(system.id.replace('-system', '').replace('-app', ''))}>
                             <h4 className="text-xl font-bold text-slate-800 mb-2">{system.name}</h4>
-                            <Badge className="mb-3 bg-orange-100 text-red-800">{system.category}</Badge>
+                            <Badge className="mb-3 bg-blue-100 text-blue-800">{system.category}</Badge>
                             <p className="text-slate-600 text-sm mb-4">{system.description}</p>
-                            <div className="flex items-center text-red-600">
+                            <div className="flex items-center text-blue-600">
                               <span className="text-sm font-medium">Learn More</span>
                               <ChevronRight className="ml-1 h-4 w-4" />
                             </div>
@@ -1713,7 +1365,7 @@ function App() {
                       <div className="grid md:grid-cols-3 gap-6">
                         <div>
                           <h5 className="font-semibold mb-2">🔒 Security & Compliance</h5>
-                          <ul className="text-sm space-y-1 text-orange-100">
+                          <ul className="text-sm space-y-1 text-blue-100">
                             {technologyData.technology_platform.security_compliance.data_protection.slice(0, 3).map((item, i) => (
                               <li key={i}>• {item}</li>
                             ))}
@@ -1721,7 +1373,7 @@ function App() {
                         </div>
                         <div>
                           <h5 className="font-semibold mb-2">☁️ Cloud Infrastructure</h5>
-                          <ul className="text-sm space-y-1 text-orange-100">
+                          <ul className="text-sm space-y-1 text-blue-100">
                             {technologyData.technology_platform.scalability.cloud_infrastructure.slice(0, 3).map((item, i) => (
                               <li key={i}>• {item}</li>
                             ))}
@@ -1729,7 +1381,7 @@ function App() {
                         </div>
                         <div>
                           <h5 className="font-semibold mb-2">📈 Scalability</h5>
-                          <ul className="text-sm space-y-1 text-orange-100">
+                          <ul className="text-sm space-y-1 text-blue-100">
                             {technologyData.technology_platform.scalability.capacity.slice(0, 3).map((item, i) => (
                               <li key={i}>• {item}</li>
                             ))}
@@ -1760,7 +1412,7 @@ function App() {
                         <h4 className="text-xl font-bold text-slate-800 mb-4">Integrations</h4>
                         <div className="flex flex-wrap gap-2">
                           {technologyData.technology_platform.core_systems[0].integrations.map((integration, index) => (
-                            <Badge key={index} className="bg-orange-100 text-red-800">{integration}</Badge>
+                            <Badge key={index} className="bg-blue-100 text-blue-800">{integration}</Badge>
                           ))}
                         </div>
                       </div>
@@ -1779,7 +1431,7 @@ function App() {
                           <h5 className="font-bold text-slate-800 mb-4">App Store Performance</h5>
                           <div className="grid grid-cols-2 gap-4 text-center">
                             <div>
-                              <div className="text-2xl font-bold text-red-600">4.8★</div>
+                              <div className="text-2xl font-bold text-blue-600">4.8★</div>
                               <div className="text-sm text-slate-600">App Store Rating</div>
                             </div>
                             <div>
@@ -1804,8 +1456,8 @@ function App() {
                         <div className="space-y-3 mb-6">
                           {technologyData.technology_platform.core_systems[1].ai_capabilities.map((capability, index) => (
                             <div key={index} className="flex items-center space-x-3">
-                              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                                <span className="text-red-600 font-bold text-sm">{index + 1}</span>
+                              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                <span className="text-blue-600 font-bold text-sm">{index + 1}</span>
                               </div>
                               <span className="text-slate-700 font-medium">{capability}</span>
                             </div>
@@ -1859,7 +1511,7 @@ function App() {
                         <div className="space-y-3 mb-6">
                           {technologyData.technology_platform.core_systems[2].technical_specs.map((spec, index) => (
                             <div key={index} className="flex items-center space-x-3">
-                              <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                              <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                               <span className="text-slate-700">{spec}</span>
                             </div>
                           ))}
@@ -1894,7 +1546,7 @@ function App() {
                               <div className="text-sm text-slate-300">Recognition Accuracy</div>
                             </div>
                             <div>
-                              <div className="text-3xl font-bold text-orange-400">&lt;0.5s</div>
+                              <div className="text-3xl font-bold text-blue-400">&lt;0.5s</div>
                               <div className="text-sm text-slate-300">Processing Time</div>
                             </div>
                           </div>
@@ -2038,7 +1690,7 @@ function App() {
                         <p className="text-slate-600 mb-4">{technologyData.technology_platform.integrations.hotel_management.description}</p>
                         <div className="flex flex-wrap gap-2">
                           {technologyData.technology_platform.integrations.hotel_management.supported_systems.map((system, index) => (
-                            <Badge key={index} className="bg-orange-100 text-red-800">{system}</Badge>
+                            <Badge key={index} className="bg-blue-100 text-blue-800">{system}</Badge>
                           ))}
                         </div>
                       </div>
@@ -2180,7 +1832,7 @@ function App() {
                     <Card key={study.id} className="cursor-pointer hover:shadow-lg transition-shadow">
                       <CardContent className="p-6" onClick={() => setSelectedCaseStudy(study)}>
                         <div className="mb-4">
-                          <Badge className="mb-2 bg-orange-100 text-red-800">{study.industry}</Badge>
+                          <Badge className="mb-2 bg-blue-100 text-blue-800">{study.industry}</Badge>
                           <h3 className="text-xl font-bold text-slate-800 mb-2">{study.title}</h3>
                           <p className="text-slate-600 mb-2">{study.client}</p>
                           <p className="text-sm text-slate-500">{study.location}</p>
@@ -2191,11 +1843,11 @@ function App() {
                             <div className="text-2xl font-bold">{study.results.revenue_increase || study.results.patient_flow_improvement || study.results.traffic_reduction}</div>
                           </div>
                           <div>
-                            <div className="font-semibold text-red-600">ROI</div>
+                            <div className="font-semibold text-blue-600">ROI</div>
                             <div className="text-2xl font-bold">{study.roi}</div>
                           </div>
                         </div>
-                        <div className="mt-4 flex items-center text-red-600">
+                        <div className="mt-4 flex items-center text-blue-600">
                           <span className="text-sm font-medium">Read Full Story</span>
                           <ChevronRight className="ml-1 h-4 w-4" />
                         </div>
@@ -2208,7 +1860,7 @@ function App() {
                   <h3 className="text-2xl font-bold text-slate-800 mb-6 text-center">Overall Impact</h3>
                   <div className="grid md:grid-cols-4 gap-6 text-center">
                     <div>
-                      <div className="text-3xl font-bold text-red-600">{caseStudiesData.summary_stats.total_clients}</div>
+                      <div className="text-3xl font-bold text-blue-600">{caseStudiesData.summary_stats.total_clients}</div>
                       <div className="text-slate-600">Clients Served</div>
                     </div>
                     <div>
@@ -2230,7 +1882,7 @@ function App() {
               <div className="p-6">
                 <button 
                   onClick={() => setSelectedCaseStudy(null)}
-                  className="mb-6 flex items-center text-red-600 hover:text-red-800"
+                  className="mb-6 flex items-center text-blue-600 hover:text-blue-800"
                 >
                   <ChevronRight className="h-4 w-4 rotate-180 mr-1" />
                   Back to All Case Studies
@@ -2238,7 +1890,7 @@ function App() {
                 
                 <div className="grid lg:grid-cols-3 gap-8">
                   <div className="lg:col-span-2">
-                    <Badge className="mb-4 bg-orange-100 text-red-800">{selectedCaseStudy.industry}</Badge>
+                    <Badge className="mb-4 bg-blue-100 text-blue-800">{selectedCaseStudy.industry}</Badge>
                     <h1 className="text-4xl font-bold text-slate-800 mb-4">{selectedCaseStudy.title}</h1>
                     <div className="flex items-center space-x-4 mb-6 text-slate-600">
                       <span className="font-semibold">{selectedCaseStudy.client}</span>
@@ -2296,7 +1948,7 @@ function App() {
                           ))}
                           <div className="border-t pt-4 flex justify-between">
                             <span className="text-slate-600">ROI</span>
-                            <span className="font-bold text-red-600 text-xl">{selectedCaseStudy.roi}</span>
+                            <span className="font-bold text-blue-600 text-xl">{selectedCaseStudy.roi}</span>
                           </div>
                         </div>
                       </CardContent>
@@ -2347,9 +1999,9 @@ function App() {
                       Our founders bring extensive backgrounds in parking services and cutting-edge technology solutions, establishing us 
                       as industry leaders in comprehensive parking management.
                     </p>
-                    <div className="bg-orange-50 p-6 rounded-lg">
-                      <h4 className="text-lg font-semibold text-red-900 mb-2">Our Mission</h4>
-                      <p className="text-red-800 italic">
+                    <div className="bg-blue-50 p-6 rounded-lg">
+                      <h4 className="text-lg font-semibold text-blue-900 mb-2">Our Mission</h4>
+                      <p className="text-blue-800 italic">
                         "But seek first his kingdom and his righteousness, and all these things will be given to you as well." - Matthew 6:33
                       </p>
                       <p className="text-gray-700 mt-3">
@@ -2382,7 +2034,7 @@ function App() {
                         className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
                       />
                       <h4 className="text-xl font-bold text-gray-900">Craig Martin Sr.</h4>
-                      <p className="text-red-600 font-semibold">Founder</p>
+                      <p className="text-blue-600 font-semibold">Founder</p>
                     </div>
                     <p className="text-gray-700 text-sm">
                       Visionary founder with over two decades of experience in parking services and business development. 
@@ -2400,7 +2052,7 @@ function App() {
                         className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
                       />
                       <h4 className="text-xl font-bold text-gray-900">Matt Bowers</h4>
-                      <p className="text-red-600 font-semibold">Operations Leader</p>
+                      <p className="text-blue-600 font-semibold">Operations Leader</p>
                       <p className="text-sm text-gray-600">U.S. Marine Corps Veteran</p>
                     </div>
                     <p className="text-gray-700 text-sm">
@@ -2420,7 +2072,7 @@ function App() {
                         className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
                       />
                       <h4 className="text-xl font-bold text-gray-900">Dr. JW Gates</h4>
-                      <p className="text-red-600 font-semibold">Chief Financial Officer</p>
+                      <p className="text-blue-600 font-semibold">Chief Financial Officer</p>
                       <p className="text-sm text-gray-600">Practicing Chiropractor</p>
                     </div>
                     <p className="text-gray-700 text-sm">
@@ -2440,7 +2092,7 @@ function App() {
                         className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
                       />
                       <h4 className="text-xl font-bold text-gray-900">Prophet J. Davon Carter</h4>
-                      <p className="text-red-600 font-semibold">Strategic Advisor</p>
+                      <p className="text-blue-600 font-semibold">Strategic Advisor</p>
                       <p className="text-sm text-gray-600">Pastor, Arise Church - Decatur, Alabama</p>
                     </div>
                     <p className="text-gray-700 text-sm">
@@ -2461,7 +2113,7 @@ function App() {
                         className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
                       />
                       <h4 className="text-xl font-bold text-gray-900">Tim Woods</h4>
-                      <p className="text-red-600 font-semibold">Chief Innovation Advisor</p>
+                      <p className="text-blue-600 font-semibold">Chief Innovation Advisor</p>
                       <p className="text-sm text-gray-600">Technology & Creative Innovation Specialist</p>
                     </div>
                     <p className="text-gray-700 text-sm">
@@ -2483,7 +2135,7 @@ function App() {
                         className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
                       />
                       <h4 className="text-xl font-bold text-gray-900">Prophetess Latoya Carter</h4>
-                      <p className="text-red-600 font-semibold">Spiritual Advisor</p>
+                      <p className="text-blue-600 font-semibold">Spiritual Advisor</p>
                       <p className="text-sm text-gray-600">Co-Pastor, Arise Church - Decatur, Alabama</p>
                     </div>
                     <p className="text-gray-700 text-sm">
@@ -2503,21 +2155,21 @@ function App() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Our Values</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="text-center">
-                    <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-2xl">🙏</span>
                     </div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-2">Faith-Based Service</h4>
                     <p className="text-gray-700 text-sm">Guided by Matthew 6:33, we seek God's kingdom first in all our endeavors.</p>
                   </div>
                   <div className="text-center">
-                    <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-2xl">⭐</span>
                     </div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-2">Excellence</h4>
                     <p className="text-gray-700 text-sm">Committed to delivering exceptional service that exceeds expectations.</p>
                   </div>
                   <div className="text-center">
-                    <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-2xl">🤝</span>
                     </div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-2">Integrity</h4>
@@ -2530,66 +2182,11 @@ function App() {
               <div className="mt-8 text-center">
                 <button 
                   onClick={() => window.open('https://link.parkingcompanyworldwide.com/widget/booking/8VdpD7ZROxwIdpWvZpwn', '_blank')}
-                  className="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors font-medium"
+                  className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
                 >
                   Meet with Our Leadership Team
                 </button>
               </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Floating Talk to an Expert Button */}
-      <div className="fixed bottom-8 left-8 z-50">
-        <Button 
-          size="lg" 
-          className="bg-red-600 hover:bg-red-700 text-white px-6 py-4 text-lg shadow-2xl rounded-full flex items-center gap-2 animate-pulse"
-          onClick={() => window.location.href = 'tel:8779088271'}
-        >
-          <Phone className="h-5 w-5" />
-          Talk to an Expert
-        </Button>
-      </div>
-
-      {/* Video Modal Popup */}
-      {showVideoModal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="relative w-full max-w-5xl mx-4 bg-slate-900 rounded-2xl shadow-2xl overflow-hidden">
-            {/* Close Button */}
-            <button
-              onClick={handleCloseVideoModal}
-              className="absolute top-4 right-4 z-10 bg-red-600 hover:bg-red-700 text-white rounded-full p-3 shadow-lg transition-all hover:scale-110"
-              aria-label="Close video"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            
-            {/* Video Container */}
-            <div className="relative aspect-video bg-black">
-              <video
-                className="w-full h-full"
-                controls
-                autoPlay
-                playsInline
-                onEnded={handleCloseVideoModal}
-              >
-                <source src="/videos/intro-video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            
-            {/* Optional: Skip Button */}
-            <div className="bg-slate-800 px-6 py-4 flex justify-between items-center">
-              <p className="text-white text-sm">Welcome to The Parking Company Worldwide</p>
-              <Button
-                onClick={handleCloseVideoModal}
-                className="bg-orange-600 hover:bg-orange-700 text-white"
-              >
-                Continue to Website
-              </Button>
             </div>
           </div>
         </div>
